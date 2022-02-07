@@ -1,4 +1,4 @@
-package generic
+package genericutils
 
 // Either represents a value of one of two possible types (a disjoint union). An instance of Either is an instance of either Left or Right.
 type Either[E, T any] struct {
@@ -7,13 +7,13 @@ type Either[E, T any] struct {
 	isLeft bool
 }
 
-// Left return Either with left value embedded
-func Left[E, T any](rval T) Either[E, T] {
+// Right return Either with right value embedded
+func Right[E, T any](rval T) Either[E, T] {
 	return Either[E, T]{right: rval}
 }
 
-// Right return Either with right value embedded
-func Right[E, T any](lval E) Either[E, T] {
+// Left return Either with left value embedded
+func Left[E, T any](lval E) Either[E, T] {
 	return Either[E, T]{left: lval, isLeft: true}
 }
 
